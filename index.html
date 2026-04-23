@@ -1,20 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>BOT ZA5RAFA 3 </title>
-    
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>𝑩𝑶𝑻 𝒁𝑨5𝑹𝑨𝑭𝑨</title>
+    
+    <link rel="manifest" href="https://progressier.app/Asne7jQDoEmLhyvG21zj/progressier.json"/>
+    <script defer src="https://progressier.app/Asne7jQDoEmLhyvG21zj/script.js"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -113,13 +106,12 @@
             gap: 6px; margin-top: 50px; padding-bottom: 70px; width: 100%; max-width: 320px; align-self: center;
         }
 
-        /* تعديلات تصغير أزرار الأسماء لتبدو أصغر في الصورة */
         .decor-item {
             background: rgba(0, 0, 0, 0.65); border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 6px 12px; border-radius: 8px; color: #fff; 
             display: flex; justify-content: space-between; align-items: center;
             font-size: 13px; cursor: pointer; transition: 0.2s; backdrop-filter: blur(5px);
-            width: 80%; align-self: center; /* تقليل العرض لـ 80% */
+            width: 80%; align-self: center;
             margin: 2px 0;
         }
         .decor-item:active { transform: scale(0.98); background: rgba(255, 92, 0, 0.7); }
@@ -128,7 +120,6 @@
             width: 14px; height: 14px; opacity: 0.8; filter: invert(1);
         }
 
-        /* تصغير حقل الإدخال السفلي */
         .bottom-input-container {
             position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);
             width: 70%; max-width: 240px; background: rgba(0, 0, 0, 0.8);
@@ -233,6 +224,12 @@
             document.getElementById('totalLikes').innerText = count + " إعجاب";
         });
 
+        window.addLike = function() {
+            runTransaction(likesRef, (currentLikes) => {
+                return (currentLikes || 0) + 1;
+            });
+        };
+
         window.loginWithGoogle = function() {
             signInWithPopup(auth, provider).then((r) => {
                 showMain(r.user.displayName, r.user.email, r.user.photoURL);
@@ -264,6 +261,7 @@
             ui.style.display = (ui.style.display === 'flex') ? 'none' : 'flex';
         }
 
+        // استعادة جميع الأنماط الـ 12
         const charMaps = {
             boldS: {a:"𝐀",b:"𝐁",c:"𝐂",d:"𝐃",e:"𝐄",f:"𝐅",g:"𝐆",h:"𝐇",i:"𝐈",j:"𝐉",k:"𝐊",l:"𝐋",m:"𝐌",n:"𝐍",o:"𝐎",p:"𝐏",q:"𝐐",r:"𝐑",s:"𝐒",t:"𝐓",u:"𝐔",v:"𝐕",w:"𝐖",x:"𝐗",y:"𝐘",z:"𝐉"},
             boldSans: {a:"𝗔",b:"𝗕",c:"𝗖",d:"𝗗",e:"𝗘",f:"𝗙",g:"𝗚",h:"𝗛",i:"𝗜",j:"𝗝",k:"𝗞",l:"𝗟",m:"𝗠",n:"𝗡",o:"𝗢",p:"𝗣",q:"𝗤",r:"𝗥",s:"𝗦",t:"𝗧",u:"𝗨",v:"𝗩",w:"𝗪",x:"𝗫",y:"𝗬",z:"𝗭"},
@@ -272,8 +270,11 @@
             circlesF: {a:"🅐",b:"🅑",c:"🅒",d:"🅓",e:"🅔",f:"🅕",g:"🅖",h:"🅗",i:"🅘",j:"🅙",k:"🅚",l:"🅛",m:"🅜",n:"🅝",o:"🅞",p:"🅟",q:"🅠",r:"🅡",s:"🅢",t:"🅣",u:"🅤",v:"🅥",w:"🅦",x:"🅧",y:"🅨",z:"🅩"},
             double: {a:"𝔸",b:"𝔹",c:"ℂ",d:"𝔻",e:"𝔼",f:"𝔽",g:"𝔾",h:"ℍ",i:"𝕀",j:"𝕁",k:"𝕂",l:"𝕃",m:"𝕄",n:"ℕ",o:"𝕆",p:"ℙ",q:"ℚ",r:"ℝ",s:"𝕊",t:"𝕋",u:"𝕌",v:"𝕍",w:"𝕎",x:"𝕏",y:"𝕐",z:"ℤ"},
             fraktur: {a:"𝔄",b:"𝔅",c:"ℭ",d:"𝔇",e:"𝔈",f:"𝔉",g:"𝔊",h:"ℌ",i:"ℑ",j:"𝔍",k:"𝔎",l:"𝔏",m:"𝔐",n:"𝔑",o:"𝔒",p:"𝔓",q:"𝔔",r:"ℜ",s:"𝔖",t:"𝔗",u:"𝔘",v:"𝔙",w:"𝔚",x:"𝔛",y:"𝔜",z:"ℨ"},
-            mono: {a:"𝙰",b:"𝙱",c:"𝙲",d:"𝙳",e:"𝙴",f:"𝙵",g:"𝙶",h:"𝙷",i:"𝙸",j:"𝙹",k:"𝙺",l:"𝙻",m:"𝙼",n:"𝙽",o:"𝙾",p:"𝙿",q:"𝚀",r:"𝚁",s:"𝚂",t:"𝚃",u:"𝚄",v:"𝑽",w:"𝚆",x:"𝚇",y:"𝚈",z:"𝚉"},
-            sq: {a:"🄰",b:"🄱",c:"🄲",d:"🄳",e:"🄴",f:"🄵",g:"🄶",h:"🄷",i:"🄸",j:"🄹",k:"🄺",l:"🄻",m:"🄼",n:"🄽",o:"🄾",p:"🄿",q:"🅀",r:"🅁",s:"🅂",t:"🅃",u:"🅄",v:"🅅",w:"🅆",x:"🅇",y:"🅈",z:"🅉"}
+            frakturB: {a:"𝕬",b:"𝕭",c:"𝕮",d:"𝕯",e:"𝕰",f:"𝕱",g:"𝕲",h:"𝕳",i:"𝕴",j:"𝕵",k:"𝕶",l:"𝕷",m:"𝕸",n:"𝕹",o:"𝕺",p:"𝕻",q:"𝕼",r:"𝕽",s:"𝕾",t:"𝕿",u:"𝕊",v:"𝕱",w:"𝕸",x:"𝕏",y:"𝖄",z:"𝖅"},
+            mono: {a:"𝙰",b:"𝙱",c:"𝙲",d:"𝙳",e:"𝙴",f:"𝙵",g:"𝙶",h:"𝑯",i:"𝙸",j:"𝙹",k:"𝙺",l:"𝙻",m:"𝙼",n:"𝙽",o:"𝙾",p:"𝙿",q:"𝚀",r:"𝚁",s:"𝚂",t:"𝚃",u:"𝚄",v:"𝑽",w:"𝚆",x:"𝚇",y:"𝚈",z:"𝚉"},
+            sq: {a:"🄰",b:"🄱",c:"🄲",d:"🄳",e:"🄴",f:"🄵",g:"🄶",h:"🄷",i:"🄸",j:"🄹",k:"🄺",l:"🄻",m:"🄼",n:"🄽",o:"🄾",p:"🄿",q:"🅀",r:"🅁",s:"🅂",t:"🅃",u:"🅄",v:"🅅",w:"🅆",x:"🅇",y:"🅈",z:"🅉"},
+            sqF: {a:"🅰",b:"🅱",c:"🆂",d:"🅳",e:"🅴",f:"🅵",g:"🅶",h:"🅷",i:"🅸",j:"🅹",k:"🅺",l:"🅻",m:"🅼",n:"🅽",o:"🅾",p:"🅿",q:"🆀",r:"🆁",s:"🆂",t:"🆃",u:"🆄",v:"🆅",w:"🆆",x:"🆇",y:"🆈",z:"🆉"},
+            wide: {a:"Ａ",b:"Ｂ",c:"Ｃ",d:"Ｄ",e:"Ｅ",f:"Ｆ",g:"Ｇ",h:"Ｈ",i:"Ｉ",j:"Ｊ",k:"Ｋ",l:"Ｌ",m:"Ｍ",n:"Ｎ",o:"Ｏ",p:"Ｐ",q:"Ｑ",r:"Ｒ",s:"Ｓ",t:"Ｔ",u:"Ｕ",v:"Ｖ",w:"Ｗ",x:"Ｘ",y:"Ｙ",z:"Ｚ"}
         };
 
         window.generateDecor = function() {
@@ -312,9 +313,5 @@
         function speedUp() { p = Math.min(100, p + 25); }
     </script>
 </body>
-</html>
-    
-  </body>
-  
-  </html>
+              </html>
   
