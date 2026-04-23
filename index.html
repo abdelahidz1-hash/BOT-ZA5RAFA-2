@@ -1,235 +1,320 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>BOT ZA5RAFA 3 </title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>𝑩𝑶𝑻 𝒁𝑨5𝑹𝑨𝑭𝑨</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #080810;
-    --surface: rgba(16, 16, 30, 0.9);
-    --orange: #ff5c00;
-    --text: #f0f0ff;
-    --border: rgba(255, 255, 255, 0.2);
-    --glass: rgba(255, 255, 255, 0.1);
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝑩𝑶𝑻 𝒁𝑨5𝑹𝑨𝑭𝑨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --orange: #ff5c00;
+            --text: #f0f0ff;
+        }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  body { 
-    font-family: 'Cairo', sans-serif; 
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                url('https://freefiremobile-a.akamaihd.net/common/web_event/official2.ff.garena.all/img/20228/0f77bc3b090c6d61e6793f96e92d25e7.jpg');
-    background-size: cover; background-attachment: fixed;
-    color: var(--text); height: 100vh; display: flex; flex-direction: column; overflow: hidden; 
-  }
+        body { 
+            margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center; 
+            font-family: 'Cairo', sans-serif; overflow: hidden; background: #000; 
+        }
+        
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        
+        #bg-login { 
+            background-image: url('https://freefiremobile-a.akamaihd.net/common/web_event/official2.ff.garena.all/img/20228/2b22fbe56ede9d785ebed4f12a377b91.jpg');
+            background-size: cover; background-position: center; filter: brightness(0.6); 
+        }
 
-  .header { 
-    padding: 16px 20px; 
-    background: var(--surface); 
-    border-bottom: 1px solid var(--border); 
-    display: flex; 
-    justify-content: center; /* توسيط الاسم بعد حذف الزر */
-    align-items: center; 
-  }
-  
-  .name { font-weight: 900; font-size: 1.1rem; color: var(--orange); }
+        #bg-main { 
+            display: none;
+            background-image: url('https://freefiremobile-a.akamaihd.net/common/web_event/official2.ff.garena.all/img/20228/2c7002c23451f600062f42ce7e7a9815.jpg');
+            background-size: cover; background-position: center;
+        }
 
-  .chat { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; }
-  .row { display: flex; align-items: flex-end; gap: 10px; animation: popIn .3s ease; }
-  .row.bot .bubble { background: var(--glass); border: 1px solid var(--border); border-radius: 18px; padding: 12px 16px; max-width: 90%; line-height: 1.6; position: relative; }
-  .row.user { flex-direction: row-reverse; }
-  .row.user .bubble { color: var(--orange); font-weight: bold; background: rgba(255, 92, 0, 0.1); padding: 8px 15px; border-radius: 15px; }
+        #loader-container { text-align: center; z-index: 20; width: 80%; max-width: 350px; }
+        .progress-wrapper {
+            width: 100%; height: 12px; background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        #progress-fill {
+            height: 100%; width: 0%; background: linear-gradient(90deg, #ff0000, #ff7b00);
+            box-shadow: 0 0 15px #ff4500; transition: width 0.1s linear;
+        }
+        .loading-text { color: #fff; margin-bottom: 8px; font-weight: 700; font-size: 14px; }
 
-  .video-header-player {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px auto; 
-    border-radius: 20px;
-    overflow: hidden;
-    border: 2px solid var(--orange);
-    background: #000;
-    box-shadow: 0 4px 15px rgba(255, 92, 0, 0.2);
-    aspect-ratio: 1 / 1; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .video-header-player video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+        .glass-panel {
+            width: 240px; background: rgba(255, 255, 255, 0.12);
+            border: 1.2px solid rgba(255, 255, 255, 0.4); border-radius: 25px; 
+            text-align: center; padding: 25px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+        }
 
-  .video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0); 
-    z-index: 10;
-    cursor: default;
-  }
+        .login-title { color: #fff; font-size: 16px; margin-bottom: 15px; font-weight: 900; }
+        
+        .google-btn {
+            background: #fff; width: 30px; height: 30px; border-radius: 50%; 
+            border: 1.5px solid #000; cursor: pointer; display: flex; 
+            align-items: center; justify-content: center; margin: 0 auto 10px auto; 
+        }
+        .google-btn img { width: 16px; height: 16px; }
 
-  .list-container { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; max-height: 280px; overflow-y: auto; padding: 5px; }
-  .list-item { 
-    background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white; 
-    padding: 10px; border-radius: 8px; cursor: pointer; font-family: 'Cairo'; font-size: 0.75rem;
-    transition: 0.3s; text-align: center; display: flex; justify-content: space-between; align-items: center;
-  }
-  .list-item:hover { border-color: var(--orange); background: rgba(255, 92, 0, 0.1); }
+        .input-group { display: flex; flex-direction: column; gap: 8px; }
+        .input-field {
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px; padding: 8px; color: #fff; font-family: 'Cairo', sans-serif;
+            font-size: 12px; outline: none; text-align: center;
+        }
+        .login-submit {
+            background: linear-gradient(90deg, #ff0000, #ff7b00); border: none;
+            border-radius: 8px; color: white; padding: 8px; cursor: pointer;
+            font-size: 12px; font-weight: bold; font-family: 'Cairo', sans-serif;
+        }
 
-  .copy-icon { width: 16px; height: 16px; filter: invert(48%) sepia(100%) saturate(1500%) hue-rotate(3deg) brightness(105%) contrast(105%); }
+        #main-interface { display: none; width: 100%; height: 100%; position: relative; }
+        
+        .top-bar {
+            position: absolute; top: 20px; right: 20px;
+            display: flex; gap: 12px; align-items: center; z-index: 10;
+        }
 
-  .sens-box { background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 10px; font-size: 0.9rem; border: 1px solid var(--border); }
-  .sens-line { display: flex; justify-content: space-between; margin-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 2px; }
+        .action-btn {
+            width: 45px; height: 45px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2); border: 2px solid #fff;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            overflow: hidden; backdrop-filter: blur(5px);
+        }
+        .action-btn img { width: 70%; height: 70%; object-fit: contain; }
 
-  .input-area { display: flex; gap: 10px; padding: 15px; background: var(--surface); border-top: 1px solid var(--border); }
-  input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 12px; padding: 12px; color: white; outline: none; font-family: 'Cairo'; }
-  button.send { background: var(--orange); border: none; padding: 0 20px; border-radius: 12px; color: white; cursor: pointer; font-size: 1.2rem; }
+        #decoration-ui {
+            display: none; position: fixed; inset: 0; 
+            background-image: url('https://freefiremobile-a.akamaihd.net/common/web_event/official2.ff.garena.all/img/20228/0f77bc3b090c6d61e6793f96e92d25e7.jpg');
+            background-size: cover; background-position: center;
+            z-index: 100; flex-direction: column; padding: 15px;
+        }
+        
+        #decoration-ui::before {
+            content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: -1;
+        }
 
-  @keyframes popIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-</style>
+        .close-ui { position: absolute; top: 20px; left: 20px; color: #fff; font-size: 24px; cursor: pointer; z-index: 110; text-shadow: 0 0 10px #000; }
+
+        #decor-results {
+            flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column;
+            gap: 6px; margin-top: 50px; padding-bottom: 70px; width: 100%; max-width: 320px; align-self: center;
+        }
+
+        /* تعديلات تصغير أزرار الأسماء لتبدو أصغر في الصورة */
+        .decor-item {
+            background: rgba(0, 0, 0, 0.65); border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 12px; border-radius: 8px; color: #fff; 
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 13px; cursor: pointer; transition: 0.2s; backdrop-filter: blur(5px);
+            width: 80%; align-self: center; /* تقليل العرض لـ 80% */
+            margin: 2px 0;
+        }
+        .decor-item:active { transform: scale(0.98); background: rgba(255, 92, 0, 0.7); }
+        
+        .copy-icon {
+            width: 14px; height: 14px; opacity: 0.8; filter: invert(1);
+        }
+
+        /* تصغير حقل الإدخال السفلي */
+        .bottom-input-container {
+            position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);
+            width: 70%; max-width: 240px; background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 4px 10px; display: flex; align-items: center; backdrop-filter: blur(5px);
+        }
+        .bottom-input-container input {
+            background: transparent; border: none; color: #fff; width: 100%;
+            outline: none; font-family: 'Cairo', sans-serif; font-size: 11px; text-align: center;
+        }
+
+        #account-modal {
+            display: none; position: fixed; top: 75px; right: 20px; 
+            background: rgba(0, 0, 0, 0.9); border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px; padding: 15px; width: 200px;
+            color: #fff; z-index: 110; text-align: right; backdrop-filter: blur(10px);
+        }
+        .modal-info { font-size: 13px; margin-bottom: 5px; word-wrap: break-word; }
+        .like-section { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; text-align: center; margin-top: 10px;}
+        
+        #decor-results::-webkit-scrollbar { width: 3px; }
+        #decor-results::-webkit-scrollbar-thumb { background: #ff7b00; border-radius: 10px; }
+    </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="name">𝑩𝑶𝑻 𝒁𝑨5𝑹𝑨𝑭𝑨</div>
-</div>
+    <div id="bg-login" class="bg-layer"></div>
+    <div id="bg-main" class="bg-layer"></div>
 
-<div class="chat" id="chat"></div>
-
-<div class="input-area">
-  <input id="inp" type="text" placeholder="اكتب 1 أو 2 أو 3 أو 4...">
-  <button class="send" onclick="send()">➔</button>
-</div>
-
-<script>
-let currentReplaceableMessage = null;
-const copyIconUrl = "https://images.icon-icons.com/2650/PNG/96/copy_icon_160915.png";
-const VIDEO_URL = "https://res.cloudinary.com/dpggetoyh/video/upload/v1776413208/VID_20260417_090626_860_c2v3cw.mp4";
-const CLICK_SOUND_URL = "https://res.cloudinary.com/dpggetoyh/video/upload/v1776425605/%D8%A7%D9%84%D8%B9%D9%85_%D8%A7%D8%AF%D9%85_%D8%AA%D9%85_%D8%A7%D9%84......%D8%B1%D8%A7_%D9%84%D9%83_wvraab.mp3";
-
-const DEVICES_DATA = { "Redmi 9a": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:60}, "Samsung A10": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:66}, "Redmi 13": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:56}, "Poco X7 5G": {gen:160, red:146, x2:160, x4:164, snp:167, free:147, fire:48}, "Infinix Note 60 Pro": {gen:135, red:134, x2:141, x4:146, snp:112, free:103, fire:47}, "Realme C25y": {gen:148, red:122, x2:124, x4:150, snp:150, free:97, fire:58}, "Galaxy A07": {gen:185, red:164, x2:185, x4:160, snp:167, free:159, fire:57}, "Vivo Y51s": {gen:166, red:162, x2:167, x4:167, snp:167, free:143, fire:71}, "OnePlus 6t": {gen:141, red:147, x2:147, x4:147, snp:167, free:166, fire:53}, "Reeder S19 Pro Max": {gen:194, red:193, x2:194, x4:167, snp:167, free:147, fire:64}, "Galaxy A15": {gen:141, red:147, x2:147, x4:147, snp:167, free:166, fire:52}, "iPhone 15 Pro Max": {gen:185, red:164, x2:185, x4:160, snp:167, free:159, fire:48}, "Redmi Note 13 Pro": {gen:166, red:162, x2:167, x4:167, snp:167, free:143, fire:51}, "Poco X6 Pro": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:49}, "Infinix Smart 8": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:41}, "Tecno Spark 20 Pro": {gen:148, red:122, x2:124, x4:150, snp:150, free:97, fire:51}, "Poco F5": {gen:135, red:134, x2:141, x4:146, snp:112, free:103, fire:53}, "Huawei Nova 11i": {gen:160, red:146, x2:160, x4:164, snp:167, free:147, fire:54}, "Realme C67": {gen:194, red:193, x2:194, x4:167, snp:167, free:147, fire:58}, "Redmi 12": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:52}, "Galaxy A12": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:61}, "Infinix Smart 7": {gen:141, red:147, x2:147, x4:147, snp:167, free:166, fire:46}, "Redmi 13c": {gen:166, red:162, x2:167, x4:167, snp:167, free:143, fire:51}, "Tecno Spark 10 Pro": {gen:185, red:164, x2:185, x4:160, snp:167, free:159, fire:51}, "Poco X3 Pro": {gen:148, red:122, x2:124, x4:150, snp:150, free:97, fire:46}, "Realme C55": {gen:135, red:134, x2:141, x4:146, snp:112, free:103, fire:51}, "Galaxy A24": {gen:160, red:146, x2:160, x4:164, snp:167, free:147, fire:53}, "Redmi Note 11": {gen:194, red:193, x2:194, x4:167, snp:167, free:147, fire:49}, "Oppo A18": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:56}, "Huawei Y9 Prime": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:58}, "Redmi Note 13": {gen:141, red:147, x2:147, x4:147, snp:167, free:166, fire:52}, "Poco M6 Pro": {gen:166, red:162, x2:167, x4:167, snp:167, free:143, fire:51}, "Galaxy A34": {gen:185, red:164, x2:185, x4:160, snp:167, free:159, fire:49}, "Infinix Note 30": {gen:148, red:122, x2:124, x4:150, snp:150, free:97, fire:53}, "iPhone 11": {gen:135, red:134, x2:141, x4:146, snp:112, free:103, fire:44}, "Poco X4 Pro": {gen:160, red:146, x2:160, x4:164, snp:167, free:147, fire:54}, "Redmi Note 12": {gen:194, red:193, x2:194, x4:167, snp:167, free:147, fire:58}, "Galaxy A54": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:47}, "Infinix Hot 40 Pro": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:48}, "iPhone 13": {gen:141, red:147, x2:147, x4:147, snp:167, free:166, fire:45}, "Redmi Note 10 Pro": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:51}, "Galaxy A23": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:49}, "Infinix Hot 30": {gen:141, red:147, x2:147, x4:147, snp:167, free:166, fire:52}, "iPhone 14 Pro Max": {gen:166, red:162, x2:167, x4:167, snp:167, free:143, fire:46}, "Redmi Note 8": {gen:185, red:164, x2:185, x4:160, snp:167, free:159, fire:53}, "Galaxy A32": {gen:148, red:122, x2:124, x4:150, snp:150, free:97, fire:51}, "Poco X5 Pro": {gen:135, red:134, x2:141, x4:146, snp:112, free:103, fire:49}, "iPhone 12 Pro Max": {gen:160, red:146, x2:160, x4:164, snp:167, free:147, fire:47}, "Redmi 10": {gen:194, red:193, x2:194, x4:167, snp:167, free:147, fire:54}, "Galaxy A22": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:52}, "Galaxy A51": {gen:135, red:134, x2:141, x4:146, snp:112, free:103, fire:53}, "Redmi Note 11 Pro": {gen:160, red:146, x2:160, x4:164, snp:167, free:147, fire:48}, "Galaxy A71": {gen:148, red:122, x2:124, x4:150, snp:150, free:97, fire:51}, "Redmi Note 10": {gen:185, red:164, x2:185, x4:160, snp:167, free:159, fire:51}, "Poco X3 NFC": {gen:166, red:162, x2:167, x4:167, snp:167, free:143, fire:54}, "Galaxy A14": {gen:141, red:147, x2:147, x4:147, snp:167, free:166, fire:52}, "Infinix Note 12": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:48}, "Redmi 9": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:56}, "Galaxy A10s": {gen:194, red:193, x2:194, x4:167, snp:167, free:147, fire:61}, "Realme 8": {gen:135, red:134, x2:141, x4:146, snp:112, free:103, fire:49}, "Galaxy A03s": {gen:119, red:147, x2:147, x4:135, snp:137, free:140, fire:61}, "Redmi Note 9 Pro": {gen:184, red:165, x2:168, x4:162, snp:141, free:124, fire:58}, "Galaxy A04": {gen:141, red:147, x2:147, x4:147, snp:167, free:166, fire:53}, "Poco F4": {gen:166, red:162, x2:167, x4:167, snp:167, free:143, fire:52}, "Galaxy A21s": {gen:185, red:164, x2:185, x4:160, snp:167, free:159, fire:60}, "Redmi 10c": {gen:148, red:122, x2:124, x4:150, snp:150, free:97, fire:54} };
-const BRAZIL_NAMES = ["メㅤsɴʟㅤᴢᶻ", "ㅤTuNombreㅤএ", "i'm. Xłter", "ZW4RTH X444", "os XzㅤRIZVXㅤ愛", "Z's DANG0R", "DuXx Zz ?", "Zoom. 01x", "Universe FF?", "Junxor Zz ?", "Fars!ㅤZzㅤ?", "Jonaeid 01x", "Keplar 3x", "Universe NoXx", "! Hawa4. Pack", "⸙ Brxzz Zxt 모", "'mㅤnoT⸸k!g", "SancheZx! 모", "Z's DANGER", "Ꭾ!ꪎㅤZᴇʀᴏꪎㅤ¿?", "freestyleㅤ!?", "UɴκɴowɴㅤF!x", "Zzz Phobos №¹", "song name??", "Oolen San↑JI", "OnlyㅤM A T R I Xㅤ모", "Only Ziko", "XxㅤStyleㅤ¿?", "x7ㅤGareㅤZzz"];
-const NORMAL_NAMES = ["‏GX R O N A L D O", "ＳＮＩＰＥＲ", "✿┋ AYMNE", "『𝗩𝗜𝗣』 𝗕𝗥𝗔𝗭𝗜🇱", "Ｓａｓｕｋ𝒆", "ɴᴇʏᴍᴀʀ", "ѕɴsㅤʟᴇᴀᴅᴇʀ", "God　CRIME　모", "ＴＲＹ　ＮＸＴ　ＴＩＭＥ", "OnlyㅤF!XA??", "T R E H A R D", "ᴴᵒˣㅤＬ７ａｊㅤ⁰⁹", "اوســ亗ــڪارR‿ˣ ✌︎", "ضـ﹏ــايعㅤ♪ㅤبدونك", "sᴏᴍʙʀᴀ☂ 1%", "فخرㅤღㅤحلب"];
-const MEGA_SYMBOLS = ["☠", "☂", "☃", "☁", "☼", "❆", "♨", "✎", "✏", "❤︎", "♨︎", "☏", "✆", "✇", "☸", "✿", "❀", "ꨄ︎", "𖣂", "☕︎", "ッ", "❀", "࿐", "★", "↳", "↱", "⇢", "➯", "↝", "➸", "➹", "↬", "↫", "￫", "➥", "—", "─", "ー", "〜", "〰", "⁓", "∼", "✿", "⩇", "⩉", "ꐑ", "𖣯", "⌕", "ᨒ", "ᯤ", "ᯅ", "𖤘", "𖥦", "⏃", "%", "𓍯", "𔗫", "𔖲", "𓂃", "﹆", "﹅", "𓄼", "𓄹", "᭣", "꧞", "𓏲", "𓂅", "꣼", "࿓", "࿔", "༄", "⌗", "𓈒", "⊹", "𖥔", "ᨵ", "ꑘ", "ᜊ", "ᦒ", "ଘ", "◖", "◗", "𖠗", "ꗃ", "٩", "ะ", "≛", "߸", "𖡡", "𝆺𝅥", "꩜", "𖣠", "𖦹", "❤︎", "♥︎", "𔘓", "♡", "ᥫ", "✶", "𖤐", "★", "𒀭", "𑁍", "ꕤ", "❑", "❒", "𓈃", "𓄲", "𓄴", "𓈀", "𓊔", "୨୧", "‣", "›", "⌫", "✧", "✦", "⭒", "✓", "✘", "𓈈", "ᚙ", "⩨", "▚", "₆⁶₆", "ஃ", "⿴", "⿻", "ꭑ", "᧑", "𐐫", "𝗈︩︪", "꒰", "꒱", "ʚ", "ɞ", "⌨︎", "⚠︎", "☻", "✰", "❏", "𓆉", "◡", "꒦꒷", "✎", "ᝰ", "⚡︎", "☁︎", "⋆", "♡", "𓍲", "𓍱", "ꪔ", "𓍯", "ꊞ", "𓂃", "ꕀ", "﹆", "˚", "⤾", "☆", "✎", "◡", "⑅", "♡", "𖦹", "εїз", "ᙏ", "✿", "♡", "⊸", "ʬʬʬ", "༊", "ꕀ", "✧", "ꪔ", "◡", "𓆸", "ꔛ", "യ", "ෆ", "ღ", "ꕤ", "𓅿", "𖠋", "𖥧", "𖤣", "☄︎", "𓊝", "𓌉◯𓇋", "𓎩", "𓌈", "⍤", "𓆸", "𓊆", "𓊇", "⌇", "ꪔ", "✦", "♡", "✿", "✮", "✧", "𓈀", "𖦥", "﹅", "ン", "ィ", "𓂃", "㇁", "◒", "﹏", "ζ", "⨾", "ᨓ", "⎓", "▱", "𓂅", "ᘒ", "◟", "𓍢", "◖", "■", "ꫂ", "২", "१", "𖥧", "♥︎", "ᨒ", "୫", "૪", "໒", "𐂴", "ৎ", "ຊ", "∿", "ꔵ", "ຯ", "٢", "𖧧", "Ꮺ", "𖧷", "𓏲", "𖥨", "𖦹", "๑", "໑", "࿔", "٧", "٥", "٧", "᠀", "𑁯", "٧", "⩩", "𔘓", "ᨳ", "❐", "❏", "⿻", "⎙", "⬪", "ج", "Թ", "Ծ", "౿", "Ꮼ", "ꮱ", "ᰢ", "ꮺ", "𐑙", "ꫤ", "Ꮺ", "ᰝ", "ჲ", "ᴥ", "Ꮘ", "ف", "ળ", "န", "٦", "٥", "٢", "ণ", "𖡋", "꒲", "𖢆", "ꯊ", "꒷", "꒥", "꒦", "꒳", "꒴", "𖢺", "ଓ", "ଲ", "اف", "ال", "غ", "🝎", "𓐍", "𐐫", "◍", "ⱺ", "◔", "◷", "𔓏", "㄄", "⌾", "🝎", "๑", "ꮻ", "☹︎", "𓇸", "𖦸", "𒀭", "𑁍", "֍", "🜰", "ᦅ", "⟲", "❁", "ᜊ", "♡", "❥", "᯽", "ꕤ", "🝮", "♥︎", "𑃢", "𐀶", "꒧", "ꇊ", "⎙", "⏚", "〧", "▌", "▬", "▭", "ꉙ", "ꗃ", "౾", "౽", "𐰢", "⏧", "𓄹", "𓄼", "𔓕", "𔐬", "𔘏", "𓏲", "𓍢", "𓍯", "𓂅", "𓂃", "𓁹", "𐇻", "ᨃ", "ᨓ", "ᨑ", "ᨐ", "ᨏ", "ᨎ", "ꉂ", "‡", "꒷", "⌨", "⬪", "ↀ", "⬩", "⬧", "⬥", "⊹", "㨨", "⩌", "⩍", "⩋", "𓊌", "𓇿", "𓊔", "𓈈", "㆐", "Ⳋ", "︳", "ⴰ", "𔒴", "↻", "𝅅"];
-
-function botReply(html, replace = false) {
-  const chat = document.getElementById("chat");
-  if (replace && currentReplaceableMessage) { currentReplaceableMessage.remove(); }
-  const row = document.createElement("div"); row.className = "row bot";
-  row.innerHTML = `<div class="bubble">${html}</div>`;
-  chat.appendChild(row); chat.scrollTop = chat.scrollHeight;
-  if (replace) { currentReplaceableMessage = row; }
-}
-
-function showWelcome() {
-  botReply(`أهلاً بك في 𝑩𝑶𝑻 𝒁𝑨5𝑴𝑨𝑭𝑨 ✨<br><br>
-  1 - الحصول على الحساسية ✨<br>
-  2 - أسماء برازيلية نادرة ✨<br>
-  3 - أسماء عادية مميزة ✨<br>
-  4 - رموز كثيرة جداً جداً ✨`);
-}
-
-function copyToClipboard(text) { 
-  navigator.clipboard.writeText(text);
-  const audio = new Audio(CLICK_SOUND_URL);
-  audio.play().catch(e => console.log("خطأ في تشغيل الصوت:", e));
-}
-
-function send() {
-  const inp = document.getElementById("inp");
-  let val = inp.value.trim(); if (!val) return;
-  const userRow = document.createElement("div"); userRow.className = "row user";
-  userRow.innerHTML = `<div class="bubble">${val}</div>`;
-  document.getElementById("chat").appendChild(userRow);
-
-  if (val === "1") {
-    let btns = '<div class="list-container">';
-    Object.keys(DEVICES_DATA).forEach(dev => {
-        btns += `<div class="list-item" onclick="getSens('${dev}')">${dev}</div>`;
-    });
-    btns += '</div>';
-    botReply(`اختر جهازك لعرض الحساسية ✨:<br>${btns}`, true);
-  } 
-  else if (val === "2") {
-    let btns = '<div class="list-container">';
-    BRAZIL_NAMES.forEach(name => {
-        btns += `<div class="list-item" onclick="copyToClipboard('${name}')">${name} <img src="${copyIconUrl}" class="copy-icon"></div>`;
-    });
-    btns += '</div>';
-    botReply(`انقر على الاسم لنسخه فوراً ✨:<br>${btns}`, true);
-  }
-  else if (val === "3") {
-    let btns = '<div class="list-container">';
-    NORMAL_NAMES.forEach(name => {
-        btns += `<div class="list-item" onclick="copyToClipboard('${name}')">${name} <img src="${copyIconUrl}" class="copy-icon"></div>`;
-    });
-    btns += '</div>';
-    botReply(`انقر على الاسم لنسخه فوراً ✨:<br>${btns}`, true);
-  }
-  else if (val === "4") {
-    let btns = '<div class="list-container">';
-    MEGA_SYMBOLS.forEach(sym => {
-        btns += `<div class="list-item" onclick="copyToClipboard('${sym}')">${sym} <img src="${copyIconUrl}" class="copy-icon"></div>`;
-    });
-    btns += '</div>';
-    botReply(`انقر على الرمز لنسخه فوراً ✨:<br>${btns}`, true);
-  }
-  else {
-    botReply(`يرجى اختيار الرقم 1 للحساسية، 2 للأسماء البرازيلية، 3 للأسماء المميزة، أو 4 للرموز ✨.`);
-  }
-  inp.value = "";
-}
-
-function getSens(name) {
-    const d = DEVICES_DATA[name];
-    const html = `
-        إعدادات الحساسية لـ <b>${name}</b> ✨:
-        <div class="video-header-player">
-            <div class="video-overlay"></div> 
-            <video id="activeVideo" autoplay loop playsinline> 
-                <source src="${VIDEO_URL}" type="video/mp4">
-            </video>
+    <div id="loader-container">
+        <div class="loading-text">جاري التحميل... <span id="percentage">0%</span></div>
+        <div class="progress-wrapper" onclick="speedUp()">
+            <div id="progress-fill"></div>
         </div>
-        <div class="sens-box">
-            <div class="sens-line"><span>عام:</span> <b>${d.gen}</b></div>
-            <div class="sens-line"><span>نقطة حمراء:</span> <b>${d.red}</b></div>
-            <div class="sens-line"><span>عدسة 2x:</span> <b>${d.x2}</b></div>
-            <div class="sens-line"><span>عدسة 4x:</span> <b>${d.x4}</b></div>
-            <div class="sens-line"><span>القناص:</span> <b>${d.snp}</b></div>
-            <div class="sens-line" style="color:var(--orange)"><span>زر النار:</span> <b>${d.fire}</b></div>
+    </div>
+
+    <div id="login-interface" class="glass-panel" style="display: none;">
+        <div class="login-title">تسجيل الدخول</div>
+        <button class="google-btn" onclick="loginWithGoogle()">
+            <img src="https://cdn-icons-png.flaticon.com/128/300/300221.png" alt="google">
+        </button>
+        <div class="input-group" style="margin-top: 15px;">
+            <input type="text" class="input-field" placeholder="اسم المستخدم" id="username">
+            <input type="password" class="input-field" placeholder="كلمة المرور" id="password">
+            <button class="login-submit" onclick="manualLogin()">دخول</button>
         </div>
-    `;
-    botReply(html, true);
-    
-    setTimeout(() => {
-        const vid = document.getElementById('activeVideo');
-        if (vid) {
-            vid.muted = false;
-            vid.volume = 1.0;
-            vid.play().catch(() => {
-                console.log("صوت الفيديو يتطلب ضغطة أولى على الشاشة.");
+    </div>
+
+    <div id="main-interface">
+        <div class="top-bar">
+            <button class="action-btn" onclick="toggleDecorUI()">
+                <img src="https://images.icon-icons.com/3399/PNG/96/bot_icon_214984.png" alt="bot">
+            </button>
+            <button class="action-btn" onclick="toggleModal()">
+                <img src="https://cdn-icons-png.flaticon.com/128/10628/10628876.png" id="userAvatar" alt="user">
+            </button>
+        </div>
+
+        <div id="decoration-ui">
+            <span class="close-ui" onclick="toggleDecorUI()">✕</span>
+            <div id="decor-results"></div>
+            <div class="bottom-input-container">
+                <input type="text" id="decorInput" placeholder="اكتب اسمك..." oninput="generateDecor()">
+            </div>
+        </div>
+
+        <div id="account-modal">
+            <div id="displayName" class="modal-info">---</div>
+            <div id="displayEmail" class="modal-info" style="font-size: 10px; color: #aaa;">---</div>
+            <div class="like-section">
+                <div onclick="addLike()" style="cursor: pointer;">
+                    <img src="https://cdn-icons-png.flaticon.com/128/12096/12096301.png" style="width: 30px;" alt="Like">
+                    <div id="totalLikes" style="font-size: 11px; color: #ff7b00;">تحميل...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getDatabase, ref, set, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8FB2radBFN7NVC4JUX_JAjUk93glXfDo",
+            authDomain: "bot-za5rafa.firebaseapp.com",
+            databaseURL: "https://bot-za5rafa-default-rtdb.firebaseio.com",
+            projectId: "bot-za5rafa",
+            storageBucket: "bot-za5rafa.firebasestorage.app",
+            messagingSenderId: "747795672156",
+            appId: "1:747795672156:web:938283330b06a7b0f6ca99"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+        const provider = new GoogleAuthProvider();
+        const likesRef = ref(database, 'globalLikes');
+
+        onValue(likesRef, (s) => {
+            const count = s.val() || 0;
+            document.getElementById('totalLikes').innerText = count + " إعجاب";
+        });
+
+        window.loginWithGoogle = function() {
+            signInWithPopup(auth, provider).then((r) => {
+                showMain(r.user.displayName, r.user.email, r.user.photoURL);
             });
         }
-    }, 100);
-}
 
-document.addEventListener('click', () => {
-    const vid = document.getElementById('activeVideo');
-    if (vid && vid.muted) {
-        vid.muted = false;
-        vid.play();
-    }
-}, { once: false });
+        window.manualLogin = function() {
+            const u = document.getElementById('username').value;
+            if(u) showMain(u, "تسجيل يدوي", null);
+        }
 
-window.onload = showWelcome;
-</script>
+        function showMain(name, email, photo) {
+            document.getElementById('login-interface').style.display = 'none';
+            document.getElementById('bg-login').style.display = 'none';
+            document.getElementById('bg-main').style.display = 'block';
+            document.getElementById('main-interface').style.display = 'block';
+            document.getElementById('displayName').innerText = name;
+            document.getElementById('displayEmail').innerText = email;
+            if(photo) document.getElementById('userAvatar').src = photo;
+        }
+
+        window.toggleModal = function() {
+            const m = document.getElementById('account-modal');
+            m.style.display = (m.style.display === 'block') ? 'none' : 'block';
+        }
+
+        window.toggleDecorUI = function() {
+            const ui = document.getElementById('decoration-ui');
+            ui.style.display = (ui.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        const charMaps = {
+            boldS: {a:"𝐀",b:"𝐁",c:"𝐂",d:"𝐃",e:"𝐄",f:"𝐅",g:"𝐆",h:"𝐇",i:"𝐈",j:"𝐉",k:"𝐊",l:"𝐋",m:"𝐌",n:"𝐍",o:"𝐎",p:"𝐏",q:"𝐐",r:"𝐑",s:"𝐒",t:"𝐓",u:"𝐔",v:"𝐕",w:"𝐖",x:"𝐗",y:"𝐘",z:"𝐉"},
+            boldSans: {a:"𝗔",b:"𝗕",c:"𝗖",d:"𝗗",e:"𝗘",f:"𝗙",g:"𝗚",h:"𝗛",i:"𝗜",j:"𝗝",k:"𝗞",l:"𝗟",m:"𝗠",n:"𝗡",o:"𝗢",p:"𝗣",q:"𝗤",r:"𝗥",s:"𝗦",t:"𝗧",u:"𝗨",v:"𝗩",w:"𝗪",x:"𝗫",y:"𝗬",z:"𝗭"},
+            italicS: {a:"𝑨",b:"𝑩",c:"𝑪",d:"𝑫",e:"𝑬",f:"𝑭",g:"𝑮",h:"𝑯",i:"𝑰",j:"𝑱",k:"𝑲",l:"𝑳",m:"𝑴",n:"𝑵",o:"𝑶",p:"𝑷",q:"𝑸",r:"𝑹",s:"𝑺",t:"𝑻",u:"𝑼",v:"𝑽",w:"𝑾",x:"𝑿",y:"𝒀",z:"𝒁"},
+            circles: {a:"Ⓐ",b:"Ⓑ",c:"Ⓒ",d:"Ⓓ",e:"Ⓔ",f:"Ⓕ",g:"Ⓖ",h:"Ⓗ",i:"Ⓘ",j:"Ⓙ",k:"Ⓚ",l:"Ⓛ",m:"Ⓜ",n:"Ⓝ",o:"Ⓞ",p:"Ⓟ",q:"Ⓠ",r:"Ⓡ",s:"Ⓢ",t:"Ⓣ",u:"Ⓤ",v:"Ⓥ",w:"Ⓦ",x:"Ⓧ",y:"Ⓨ",z:"Ⓩ"},
+            circlesF: {a:"🅐",b:"🅑",c:"🅒",d:"🅓",e:"🅔",f:"🅕",g:"🅖",h:"🅗",i:"🅘",j:"🅙",k:"🅚",l:"🅛",m:"🅜",n:"🅝",o:"🅞",p:"🅟",q:"🅠",r:"🅡",s:"🅢",t:"🅣",u:"🅤",v:"🅥",w:"🅦",x:"🅧",y:"🅨",z:"🅩"},
+            double: {a:"𝔸",b:"𝔹",c:"ℂ",d:"𝔻",e:"𝔼",f:"𝔽",g:"𝔾",h:"ℍ",i:"𝕀",j:"𝕁",k:"𝕂",l:"𝕃",m:"𝕄",n:"ℕ",o:"𝕆",p:"ℙ",q:"ℚ",r:"ℝ",s:"𝕊",t:"𝕋",u:"𝕌",v:"𝕍",w:"𝕎",x:"𝕏",y:"𝕐",z:"ℤ"},
+            fraktur: {a:"𝔄",b:"𝔅",c:"ℭ",d:"𝔇",e:"𝔈",f:"𝔉",g:"𝔊",h:"ℌ",i:"ℑ",j:"𝔍",k:"𝔎",l:"𝔏",m:"𝔐",n:"𝔑",o:"𝔒",p:"𝔓",q:"𝔔",r:"ℜ",s:"𝔖",t:"𝔗",u:"𝔘",v:"𝔙",w:"𝔚",x:"𝔛",y:"𝔜",z:"ℨ"},
+            mono: {a:"𝙰",b:"𝙱",c:"𝙲",d:"𝙳",e:"𝙴",f:"𝙵",g:"𝙶",h:"𝙷",i:"𝙸",j:"𝙹",k:"𝙺",l:"𝙻",m:"𝙼",n:"𝙽",o:"𝙾",p:"𝙿",q:"𝚀",r:"𝚁",s:"𝚂",t:"𝚃",u:"𝚄",v:"𝑽",w:"𝚆",x:"𝚇",y:"𝚈",z:"𝚉"},
+            sq: {a:"🄰",b:"🄱",c:"🄲",d:"🄳",e:"🄴",f:"🄵",g:"🄶",h:"🄷",i:"🄸",j:"🄹",k:"🄺",l:"🄻",m:"🄼",n:"🄽",o:"🄾",p:"🄿",q:"🅀",r:"🅁",s:"🅂",t:"🅃",u:"🅄",v:"🅅",w:"🅆",x:"🅇",y:"🅈",z:"🅉"}
+        };
+
+        window.generateDecor = function() {
+            const input = document.getElementById('decorInput').value;
+            const res = document.getElementById('decor-results');
+            res.innerHTML = '';
+            if(!input) return;
+
+            Object.values(charMaps).forEach(map => {
+                const text = input.toLowerCase().split('').map(c => map[c] || c).join('').toUpperCase();
+                const div = document.createElement('div');
+                div.className = 'decor-item';
+                div.innerHTML = `
+                    <span>${text}</span>
+                    <img src="https://images.icon-icons.com/935/PNG/96/copy-two-paper-sheets-interface-symbol_icon-icons.com_73283.png" class="copy-icon">
+                `;
+                div.onclick = () => { navigator.clipboard.writeText(text); alert("تم نسخ: " + text); };
+                res.appendChild(div);
+            });
+        }
+    </script>
+
+    <script>
+        let p = 0;
+        let t = setInterval(() => {
+            if (p >= 100) {
+                clearInterval(t);
+                document.getElementById('loader-container').style.display = 'none';
+                document.getElementById('login-interface').style.display = 'block';
+            } else {
+                p++;
+                document.getElementById('progress-fill').style.width = p + '%';
+                document.getElementById('percentage').innerText = p + '%';
+            }
+        }, 20);
+        function speedUp() { p = Math.min(100, p + 25); }
+    </script>
 </body>
 </html>
+    
+  </body>
+  
+  </html>
+  
