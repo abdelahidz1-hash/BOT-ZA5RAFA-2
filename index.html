@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Cairo:wght@700;900&display=swap" rel="stylesheet">
     
+    <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7133783742273998" crossorigin="anonymous"></script>
+
     <style>
         /* إعدادات التنسيق العام */
         *, *:before, *:after {
@@ -291,12 +293,22 @@
 
         const targetUrl = "https://abdelahidz1-hash.github.io/bot_zakrafa/";
 
+        // وظيفة لإظهار الإعلان قبل الانتقال
+        function showInterstitialAndRedirect() {
+            if (typeof interstitialAd !== 'undefined') {
+                // إذا كان التطبيق مغلف بـ Capacitor أو Cordova
+                console.log("Showing Ad...");
+            }
+            // في حالة الويب العادي، سينتقل مباشرة بعد انتهاء العملية
+            window.location.href = targetUrl;
+        }
+
         // تسجيل الدخول بجوجل
         document.getElementById('googleBtn').onclick = async () => {
             try {
                 const result = await signInWithPopup(auth, provider);
                 console.log("Success:", result.user.displayName);
-                window.location.href = targetUrl;
+                showInterstitialAndRedirect();
             } catch (error) {
                 console.error("Error:", error.message);
                 alert("Login Error: " + error.message);
@@ -306,7 +318,7 @@
         // تسجيل الدخول اليدوي
         document.getElementById('loginForm').onsubmit = (e) => {
             e.preventDefault();
-            window.location.href = targetUrl;
+            showInterstitialAndRedirect();
         };
     </script>
 
@@ -337,6 +349,13 @@
                 setTimeout(() => shard.remove(), 8000);
             }
         }
+
+        // إعداد AdMob للوحدة الإعلانية: ca-app-pub-7133783742273998/7626996157
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-7133783742273998",
+            enable_page_level_ads: true
+        });
     </script>
 </body>
-</html>
+    </html>
+    
