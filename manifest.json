@@ -1,0 +1,37 @@
+{
+  "short_name": "ＢＯＴ ＺＡＫＲＡＦＡ",
+  "dir": "auto",
+  "name": "ＢＯＴ ＺＡＫＲＡＦＡ",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "https://abdelahidz1-hash.github.io/BOT-ZA5RAFA-2/?launchedfrom=homescreen",
+  "scope": "https://abdelahidz1-hash.github.io",
+  "id": "https://abdelahidz1-hash.github.io/WEAtlx3d0EIy2AGKXbS9",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "https://oouxkyuexvzylckxeeks.supabase.co/storage/v1/object/public/pgsstoragebucket/HQbQY95mOTyhS5DByj8K/KSqfhdtXISOBpFP.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://oouxkyuexvzylckxeeks.supabase.co/storage/v1/object/public/pgsstoragebucket/HQbQY95mOTyhS5DByj8K/VPpCrouzXsyhNUi.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+pwa",
+      "url": "https://abdelahidz1-hash.github.io/BOT-ZA5RAFA-2/?launchedfrom=homescreen&amp;pwaprotocolredirect=%s"
+    },
+    {
+      "protocol": "web+sipyagvu",
+      "url": "https://abdelahidz1-hash.github.io/BOT-ZA5RAFA-2/?launchedfrom=homescreen&amp;pwaprotocolredirect=%s"
+    }
+  ],
+  "description": "تطبيق احترافي الزخرفة الأسماء والنصوص للألعاب والمقالات بواجهة عصرية وسهلة الاستخدام"
+}
