@@ -5,9 +5,9 @@
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "display": "standalone",
-  "start_url": "https://abdelahidz1-hash.github.io/BOT-ZA5RAFA-2/?launchedfrom=homescreen",
-  "scope": "https://abdelahidz1-hash.github.io",
-  "id": "https://abdelahidz1-hash.github.io/WEAtlx3d0EIy2AGKXbS9",
+  "start_url": "/BOT-ZA5RAFA-2/?launchedfrom=homescreen",
+  "scope": "/BOT-ZA5RAFA-2/",
+  "id": "/BOT-ZA5RAFA-2/",
   "prefer_related_applications": false,
   "icons": [
     {
@@ -26,12 +26,12 @@
   "protocol_handlers": [
     {
       "protocol": "web+pwa",
-      "url": "https://abdelahidz1-hash.github.io/BOT-ZA5RAFA-2/?launchedfrom=homescreen&amp;pwaprotocolredirect=%s"
+      "url": "/BOT-ZA5RAFA-2/?launchedfrom=homescreen&pwaprotocolredirect=%s"
     },
     {
       "protocol": "web+sipyagvu",
-      "url": "https://abdelahidz1-hash.github.io/BOT-ZA5RAFA-2/?launchedfrom=homescreen&amp;pwaprotocolredirect=%s"
+      "url": "/BOT-ZA5RAFA-2/?launchedfrom=homescreen&pwaprotocolredirect=%s"
     }
   ],
-  "description": "تطبيق احترافي الزخرفة الأسماء والنصوص للألعاب والمقالات بواجهة عصرية وسهلة الاستخدام"
+  "description": "تطبيق احترافي لزخرفة الأسماء والنصوص للألعاب والمقالات بواجهة عصرية وسهلة الاستخدام"
 }
