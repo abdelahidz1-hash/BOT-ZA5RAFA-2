@@ -244,11 +244,33 @@
             0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
             100% { transform: translate(var(--x), 800px) rotate(var(--r)); opacity: 0; }
         }
+
+        /* تنسيق النافذة الكبيرة (Iframe) */
+        #app-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: none; /* مخفي افتراضياً */
+        }
+
+        #app-overlay iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
 
     <div class='bg-img' id="roomOverlay"></div>
+
+    <div id="app-overlay">
+        <iframe src="" id="target-frame"></iframe>
+    </div>
 
     <div class="lamp-container">
         <input class="l" type="checkbox" id="lightSwitch" onchange="toggleLight(this)">
@@ -291,16 +313,19 @@
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        const targetUrl = "https://abdelahidz1-hash.github.io/bot_zakrafa/";
+        const targetUrl = "https://abdelahi-apps1.netlify.app/";
 
-        // وظيفة لإظهار الإعلان قبل الانتقال
-        function showInterstitialAndRedirect() {
-            if (typeof interstitialAd !== 'undefined') {
-                // إذا كان التطبيق مغلف بـ Capacitor أو Cordova
-                console.log("Showing Ad...");
-            }
-            // في حالة الويب العادي، سينتقل مباشرة بعد انتهاء العملية
-            window.location.href = targetUrl;
+        // وظيفة لفتح الموقع في النافذة الكبيرة
+        function openAppWindow() {
+            const overlay = document.getElementById('app-overlay');
+            const iframe = document.getElementById('target-frame');
+            
+            iframe.src = targetUrl;
+            overlay.style.display = 'block';
+            
+            // إخفاء العناصر الأخرى للتركيز على النافذة
+            document.getElementById('loginForm').style.display = 'none';
+            document.querySelector('.lamp-container').style.display = 'none';
         }
 
         // تسجيل الدخول بجوجل
@@ -308,7 +333,7 @@
             try {
                 const result = await signInWithPopup(auth, provider);
                 console.log("Success:", result.user.displayName);
-                showInterstitialAndRedirect();
+                openAppWindow();
             } catch (error) {
                 console.error("Error:", error.message);
                 alert("Login Error: " + error.message);
@@ -318,7 +343,7 @@
         // تسجيل الدخول اليدوي
         document.getElementById('loginForm').onsubmit = (e) => {
             e.preventDefault();
-            showInterstitialAndRedirect();
+            openAppWindow();
         };
     </script>
 
@@ -350,12 +375,11 @@
             }
         }
 
-        // إعداد AdMob للوحدة الإعلانية: ca-app-pub-7133783742273998/7626996157
+        // إعداد AdMob
         (adsbygoogle = window.adsbygoogle || []).push({
             google_ad_client: "ca-pub-7133783742273998",
             enable_page_level_ads: true
         });
     </script>
 </body>
-    </html>
-    
+</html>
