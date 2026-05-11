@@ -1,357 +1,339 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>BOT FREE FIRE 2017</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    <title>SVG Lamp & Login Interface - BOT ZA5RAFA</title>
-    
-    <link rel="manifest" href="https://progressier.app/WEAtlx3d0EIy2AGKXbS9/progressier.json"/>
-    <script defer src="https://progressier.app/WEAtlx3d0EIy2AGKXbS9/script.js"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Cairo:wght@700;900&display=swap" rel="stylesheet">
-    
-    <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7133783742273998" crossorigin="anonymous"></script>
-
+    <title>𝐁𝐎𝐓 𝐅𝐑𝐄𝐄 𝐅𝐈𝐑𝐄 𝟐𝟎𝟏𝟕 ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* إعدادات التنسيق العام */
-        *, *:before, *:after {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #00f2ff;
+            --bg-color: #000000;
+            --surface: rgba(20, 20, 35, 0.9);
+            --border: rgba(255, 255, 255, 0.1);
+            --orange: #ff5c00;
+            --text: #ffffff;
+            --bot-bubble: rgba(255, 255, 255, 0.07);
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: #111;
+            background-color: var(--bg-color);
             margin: 0;
+            font-family: 'Cairo', sans-serif;
             overflow: hidden;
+            color: var(--text);
+        }
+
+        #main-content {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Poppins', sans-serif;
-            background-image: url('https://s-media-cache-ak0.pinimg.com/736x/89/ed/e5/89ede56bcc8243787e55676ab28f287f.jpg');
-            background-size: 350px 250px;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://i.ibb.co/SX42XpwW/images-4.jpg');
+            background-size: cover; 
+            background-position: center; 
+            height: 100vh; 
+            flex-direction: column; 
         }
 
-        .bg-img {
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            background: black;
-            opacity: 0.9;
-            transition: opacity 0.3s ease-out;
-            z-index: 0;
-        }
-
-        .lamp-container {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+        .header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 10px 20px; 
+            background: rgba(0, 0, 0, 0.8); 
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid var(--border);
             z-index: 10;
-            font-size: 40px; 
-        }
-
-        .l {
-            background-color: rgba(0,0,0,0.7);
-            border-radius: 0.75em;
-            box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
-            color: #fdea7b;
-            display: inline-flex;
-            align-items: center;
-            padding: 0.15em;
-            width: 3em;
-            height: 1.5em;
-            transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
-            -webkit-appearance: none;
-            appearance: none;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .l:before {
-            content: "";
-            background-color: #d7d7d7;
-            border-radius: 50%;
-            width: 1.2em;
-            height: 1.2em;
-            transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
-            z-index: 1;
-        }
-
-        .l:after {
-            content: "";
-            background:
-                linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
-                repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
-                radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
-            background-repeat: no-repeat;
-            border: 0.25em solid transparent;
-            border-left: 0.4em solid #d8d8d8;
-            transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
-            transform: translateX(-22.5%);
-            transform-origin: 25% 50%;
-            width: 1.2em;
-            height: 1em;
-        }
-
-        .l:checked {
-            background-color: rgba(0,0,0,0.45);
-            box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
-        }
-
-        .l:checked:before {
-            background-color: currentColor;
-            transform: translateX(125%);
-        }
-
-        .l:checked:after {
-            border-left-color: currentColor;
-            transform: translateX(-2.5%) rotateY(180deg);
-        }
-
-        form {
-            width: 290px; 
-            background: rgba(0, 0, 0, 0.85); 
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 25px; 
-            padding: 30px 25px;  
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            margin-top: 50px; 
-            box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.9);
-            border: 1px solid red;
-            animation: borderRotate 2s linear infinite;
-        }
-
-        @keyframes borderRotate {
-            0% { border-color: red; }
-            25% { border-color: blue; }
-            50% { border-color: green; }
-            75% { border-color: yellow; }
-            100% { border-color: red; }
+            height: 60px;
         }
 
         .settings-btn {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            width: 25px;
-            height: 25px;
-            color: #ff3333; 
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: none;
+            border: none;
             cursor: pointer;
-            z-index: 5;
-            animation: spin 0.4s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .img-container {
-            position: relative;
-            width: 85px; 
-            height: 85px; 
-            margin: 0 auto 15px auto;
-            cursor: pointer;
+            width: 35px;
+            height: 35px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            transition: 0.3s;
         }
-
-        .form-logo {
+        .settings-btn img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 50%;
+            filter: brightness(0) invert(1);
         }
+        .settings-btn:hover { transform: rotate(45deg); opacity: 0.8; }
 
-        label {
-            display: block;
-            margin-top: 12px;
-            font-size: 13px; 
-            font-weight: 500;
-            color: #ffffff;
-            text-align: left;
-        }
-
-        input[type="text"], input[type="password"] {
-            display: block;
-            height: 40px; 
+        #settings-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.05); 
-            border-radius: 10px;
-            padding: 0 12px;
-            margin-top: 5px;
-            font-size: 12px; 
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        button.login-btn {
-            margin-top: 20px;
-            width: 100%;
-            background-color: #ffffff;
-            color: #000;
-            padding: 10px 0;
-            font-size: 14px; 
-            font-weight: 600;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .social {
-            margin-top: 15px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .social .go {
-            width: 100%; 
-            border-radius: 8px;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            font-size: 12px; 
-            cursor: pointer;
-            display: flex;
+            height: 100%;
+            background: #000000;
+            z-index: 100;
+            display: none; 
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: 0.3s;
+            animation: fadeIn 0.3s ease;
         }
 
-        .shard {
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .close-settings {
             position: absolute;
-            background: rgba(255, 255, 255, 0.8);
-            pointer-events: none;
-            z-index: 100;
-            animation: fall-and-fade 8s forwards ease-in;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
         }
 
-        @keyframes fall-and-fade {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-            100% { transform: translate(var(--x), 800px) rotate(var(--r)); opacity: 0; }
+        .settings-list {
+            list-style: none;
+            width: 100%;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
         }
+
+        .settings-link {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            font-size: 1.4rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 300;
+            margin: 15px 0; 
+            transition: 0.3s;
+            letter-spacing: 1px;
+            width: fit-content;
+            min-width: 250px; 
+        }
+
+        .settings-link img.social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .settings-link:hover {
+            color: var(--orange);
+            transform: scale(1.05);
+        }
+
+        .chat { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
+        .row { display: flex; align-items: flex-end; gap: 10px; animation: popIn .3s ease-out both; }
+        
+        @keyframes popIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .bubble { max-width: 90%; padding: 12px 16px; border-radius: 18px; font-size: .95rem; line-height: 1.6; position: relative; color: #ffffff; }
+        .row.bot .bubble { background: var(--bot-bubble); border: 1px solid var(--border); backdrop-filter: blur(8px); border-bottom-right-radius: 4px; }
+        .row.user { flex-direction: row-reverse; }
+        .row.user .bubble { background: var(--orange); color: white; border-bottom-left-radius: 4px; font-weight: 600; }
+
+        .input-area { display: flex; gap: 10px; padding: 15px; background: rgba(0, 0, 0, 0.9); border-top: 1px solid var(--border); align-items: center; }
+        input#inp { flex: 1; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); border-radius: 12px; padding: 12px 15px; color: #ffffff; outline: none; font-family: 'Cairo'; height: 50px; }
+        
+        .send-btn { 
+            width: 50px; height: 50px; border-radius: 12px; border: none; background: var(--orange); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 10px; 
+        }
+        .send-btn img { width: 100%; height: 100%; filter: brightness(0) invert(1); }
+
+        .style-row { 
+            background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border); border-radius: 10px; padding: 10px; margin-bottom: 8px; cursor: pointer; text-align: center; color: #ffffff;
+        }
+        .style-row span { font-weight: 900; }
+        
+        .toast {
+            position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.8rem; opacity: 0; transition: 0.3s; z-index: 1000;
+        }
+
+        .symbol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(45px, 1fr)); gap: 8px; margin-top: 10px; }
+        .symbol-item { aspect-ratio: 1/1; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; color: #ffffff; }
     </style>
 </head>
 <body>
 
-    <div class='bg-img' id="roomOverlay"></div>
+    <div id="toast" class="toast">تم النسخ بنجاح!</div>
 
-    <div class="lamp-container">
-        <input class="l" type="checkbox" id="lightSwitch" onchange="toggleLight(this)">
+    <div id="settings-overlay">
+        <span class="close-settings" onclick="toggleSettings()">×</span>
+        <div class="settings-list">
+            <a href="https://t.me/Ahmedfdz17" class="settings-link" target="_blank">
+                <img src="https://images.icon-icons.com/2201/PNG/96/telegram_logo_circle_icon_134012.png" class="social-icon" alt="Telegram">
+                Telegram channel
+            </a>
+            <a href="https://www.instagram.com/abdelahi.ff.dz?igsh=MXU0dTZ3djJmNW4xdw==" class="settings-link" target="_blank">
+                <img src="https://images.icon-icons.com/1211/PNG/96/1491579602-yumminkysocialmedia36_83067.png" class="social-icon" alt="Instagram">
+                Instagram channel
+            </a>
+            <a href="https://www.tiktok.com/@abdelahi.ff.dz.17?_r=1&_t=ZS-96GcpS0jt9p" class="settings-link" target="_blank">
+                <img src="https://images.icon-icons.com/2201/PNG/96/tiktok_logo_icon_134006.png" class="social-icon" alt="TikTok">
+                TikTok channel
+            </a>
+            <a href="https://www.youtube.com/@abdelahi.ff.dz.17" class="settings-link" target="_blank">
+                <img src="https://images.icon-icons.com/1211/PNG/96/1491580651-yumminkysocialmedia28_83061.png" class="social-icon" alt="YouTube">
+                YouTube channel
+            </a>
+        </div>
     </div>
 
-    <form id="loginForm">
-        <div class="settings-btn"><i class="fas fa-cog"></i></div>
-
-        <div class="img-container" onclick="breakGlass(this)">
-            <img src="https://res.cloudinary.com/dpggetoyh/image/upload/v1777280345/Picsart_26-04-27_09-53-07-249_ipw3iw.png" alt="Logo" class="form-logo">
+    <div id="main-content">
+        <div class="header">
+            <button class="settings-btn" onclick="toggleSettings()">
+                <img src="https://images.icon-icons.com/3840/PNG/96/settings_solid_icon_235467.png" alt="Settings">
+            </button>
         </div>
-
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" required>
-
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" required>
-
-        <button type="submit" class="login-btn">Log In</button>
-        <div class="social">
-            <div class="go" id="googleBtn"><i class="fab fa-google"></i> Login with Google</div>
+        <div class="chat" id="chat"></div>
+        <div class="input-area">
+          <input id="inp" type="text" placeholder="اكتب اسمك أو رقم الخيار..." maxlength="30">
+          <button class="send-btn" onclick="send()">
+              <img src="https://images.icon-icons.com/2783/PNG/96/send_message_chat_icon_177294.png" alt="Send">
+          </button>
         </div>
-    </form>
+    </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+<script>
+    const chatBox = document.getElementById("chat");
+    const inputField = document.getElementById("inp");
+    const toast = document.getElementById("toast");
+    const settingsOverlay = document.getElementById("settings-overlay");
 
-        const firebaseConfig = {
-          apiKey: "AIzaSyD8FB2radBFN7NVC4JUX_JAjUk93glXfDo",
-          authDomain: "bot-za5rafa.firebaseapp.com",
-          databaseURL: "https://bot-za5rafa-default-rtdb.firebaseio.com",
-          projectId: "bot-za5rafa",
-          storageBucket: "bot-za5rafa.firebasestorage.app",
-          messagingSenderId: "747795672156",
-          appId: "1:747795672156:web:938283330b06a7b0f6ca99"
-        };
+    function toggleSettings() {
+        settingsOverlay.style.display = (settingsOverlay.style.display === "flex") ? "none" : "flex";
+    }
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
+    const allSymbols = "☠ ☂ ☃ ☁ ☼ ❆ ♨ ✎ ✏ ❤︎ ♨︎ ☏ ✆ ✇ ☸ ✿ ❀ ꨄ︎ 𖣂 ☕︎ ッ ❀ ࿐ ★ ↳ ↱ ⇢ ➯ ↝ ➸ ➹ ↬ ↫ ￫ ➥ ; — ─ ー 〜 〰 ⁓ ∼ (ೄྀ࿐ ˊˎ- ✿ ⩇ ⩉ ꐑ 𖣯 ⌕ ᨒ ᯤ ᯅ 𖤘  𖥦 ⏃ % 𓍯 𔗫 𔖲 𓂃 ﹆ ﹅ 𓄼 𓄹 ᭣ ꧞ 𓏲 𓂅 ꣼ ࿓ ࿔ ༄ ⌗ 𓈒 ⊹ 𖥔 ᨵ ꑘ ᨊ ᦒ ଘ ◖ ◗ 𖠗 ꗃ ٩ ะ ≛ ߸ 𖡡 𝆺𝅥 ꩜ 𖣠 𖦹 ❤︎ ♥︎ 𔘓 ♡ ᥫ ✶ 𖤐 ★ 𒀭 𑁍 ꕤ ❑ ❒ !i ！ !! ﹗ ⦂ 𓈃 𓄲 𓄴 𓈀 𓊔 ❝ ❞ ❛ ❜ ୨୧ ‣ › ⌫ ✧ ✦ ⭒ ✓ ✘ 𓈈 ᚙ ⩨ ▚ ₆⁶₆ ஃ ⿴ ⿻ ꭑ ᧑ 𐐫 𝗈︩︪ ꒰ ꒱ ʚ ɞ “” ⌨︎ ⚠︎ ☻ ✰ ❏ ˖* ೃ࿔ 𓆉 ◡ ꒦꒷ ✎ ᝰ ✿ ⚡︎ ☁︎ ⋆ ⋆⑅˚₊ ♡ 𓍲 𓍱 ꪔ 𓍯 ꊞ 𓂃 ꕀ ﹆ ˚ ༘♡ ⋆｡˚ ⤾ ・°☆ ✎ ◡ ⑅ ♡ 𖦹 ･ ♡ ･ ᐧ༚ ᐧ = ♡ εїз ᙏ ˳✧༚ /✿ ˙ᘧ ˙ ♡ ⊸ ꒰ ❛ ❜ ꒱ ♡⃕ ◡ ˚◞♡ ⃗ ʬʬʬ ༊·˚ ꕀ .* ♡ ✧˖° ꪔ ˙ ʟ˙ ♡‧₊˚ ◡ ♡ ·˚ ₊˚ˑ 𓆸 ꔛ *﹆ = ♡ ꙳ ⋆ ⸝⸝ ي *◞ ♡･ ʖ ･ . ˚◞♡ ෆ ･῾ ᵎ ⌇ ⁺◦ *´ސު｀ ༘⋆ ꙳ ꕀ ꒰ 𖧧 · ·♡ ꒱ ღ ⋆ Ꙥ ♡ ⊹ ★ ꒷ ᵎᵎ ₊ ⨾ ⋆ ʚ ɞ ✦ ♥︎ ∞ 𑁍 ⸝⸝⸝ 𓅿 𖠋 𓍲 𓍱 𖥧 𖧧 ˒˒ 𖤣𖤥𖠿𖤣𖤥 𓇥 ֒ ☄︎ 𓆱 𓂃𓊝𓄹𓄺 𓌉◯𓇋 𓎩 ⸝⸝ 𓌈˒˒ ⍤ 𓆸 𓊆 𓊇 ꒰ ꒱ ˗ˏˋ ˎˊ˗ ⌇ ꪔ ꪔ • + . ˙ ✦ ♡ ㅤ°. • °. ✿ * · ✮ . • • ⊹ . ✧ ⊹ ˚ * · ✮ . . ★ · ⊹ + * ⊹ °. * ✧ . 𓈀 𖦥 ﹅ ン ㅤꞋꞌꞋꞌ ㅤィ % 𓂃 ㇁ ◒ ！ ン ㅤ╮ ⟆ ﹏ ！ 𓂃𓈒 ﹑ ζ ㅤ﹏ ⨾ ㅤ𓈈 ㅤ❨ ᨓ ⎓ ° ؟ 𓈒 ㅤ▱ 𓂅 𓂃 ⨾ ᘒ ◟ ζ 𓍢 ◖ ᨓ ♡ ■ ꫂ ২ ζ १ 𖥧 𓂃 ♥︎ ᨒ ୫ ૪ ໒ 𐂴 ৎ ຊ ∿ ꔵ ຯ ໒ ೨ 𖧧 Ꮺ 𖧷 𓏲 𖥨 𖦹 ๑ ໑ ࿔ ७ ५ ୭ ᠀ 𑁯 ੭ ⩩ ♥︎₊˚ ⚠︎·˚ ♡⸝⸝ ✦ ᖗ ⊹ ✦ 。°˖ ✧ ១ 𔘓⠀࣪. ᨳ ✦ ★ ☆ ❐ ❏ ⿻ ⎙ ⬪ :˵ˊᯅˋ˶ જ 俺 ◟ ੭ 𓂅 ﹕ 𓂃𓈒 ࿔ 在 𑁥 ੭ 𑊑 𑊁 ረ ૮ ᭡ ᘓ ១ 𑫈 ꝿ ౿ ꪆ 𑁯 𑊁 𑊡 𑫏 𑜷 Թ Ծ ౿ 𑁯 𑁭 𑁥 ੭ ꪆ ᥫ ᘏ Ꮼ ᘓ ୬ ෧ ᘡ ୪ ১ 𖥨Ꮼ ꮱ ᰢ ꮺ 𐑙 ꫤ ﹅ ﹆ Ꮺ ᰝ ჲ ᴥ 𖦆 𓍲 𓍱 Ꮘ ફ ળ น ६ ५ २ ণ 𖡋 ଽ ꒰ ꒱ ꒲ 𖢆 ꯊ ꒷ ꒥ ꒦ ⏝ ︶ ᝰ 𖬺 ꔚ ꔛ ꕁ ꕀ ꒳ ꒴ 𖢺 ଓ ଲ ପ ମ ଘ ᳂ 🝎 𓐍 𐐫 𐐃 ◍ ⱺ ◔ ◷ 𔓏 • ㄀ ⌾ 𖣠 𖦹 ꩜ 🝎 ๑ ꮻ ☹︎ 𓇸 𖦸 𔓶 𒀭 𔓘 𑁍 𖡎 ֍ 🜰 ᦅ ⟲ ⟳ ❁ ᜊ ♡ ❥ ᯽ ꕤ 🝮 ♥︎ 𑃢 𐀶 ꒧ ꇊ ⎙ ⏚ 〧 ▌ ▬ ▭ ꉙ ꗃ ౾ ౽ 𐰢 ⏧ 𓄹 𓄼 𔓕 𔐬 𔘏 𓏲 𓍢 𓍯 𓂅 𓂃 𓁹 𐇻 ᨃ ᨓ ᨑ ᨐ ᨏ ᨎ ╭╯ ◖ ◗ ꉂ ‡ ꒷ ⌨ ⬪ ↀ ⬩ ⬧ ⬥ ⊹ 㨨 ⩌ ⩍ ⩋ 𓊌 𓇿 𓊔 𓈈 ㆐ Ⳋ ︳ ⴰ 𔒴 ↻".split(/\s+/);
 
-        const targetUrl = "https://abdelahi-apps1.netlify.app/";
+    const maps = [
+        "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯ｗｘｙｚ",
+        "𝗔𝗕𝗖𝗗E𝗙G𝗛I𝗝𝗞L𝗠𝗡O𝗣𝗤R𝗦T𝗨褒W𝗫Y𝗭𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶ජ𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇",
+        "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ",
+        "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩",
+        "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ",
+        "𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏",
+        "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓋𝔀𝔁𝔂𝓓",
+        "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔 Northern 𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡🇦🇧🇨🇩🇪習𝘩𝘪𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝘴𝘵🇺𝘷𝘸𝘹𝘺𝘻",
+        "𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓",
+        "𝙰𝙱𝙲|𝙴|𝙶𝙷𝙸𝙹𝙺𝙻𝙼|𝙽𝙾怀𝙿𝚀𝚁|𝚂𝚃𝚄|𝚅|𝚇𝚈𝚉𝚊𝚋|认定𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪 n𝔬𝔭𝔮𝔯𝔰|𝔱𝔲𝔳𝔴𝔵𝔶𝔷",
+        "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉",
+        "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉",
+        "ᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᵠᴿˢᵀᵁⱽᵂˣʸᶻᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖᵠʳˢᵗᵘᵛʷˣʸᶻ",
+        "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪 n𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷",
+        "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒 n𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟"
+    ];
+    const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-        // وظيفة لإظهار الإعلان قبل الانتقال
-        function showInterstitialAndRedirect() {
-            if (typeof interstitialAd !== 'undefined') {
-                console.log("Showing Ad...");
-            }
-            window.location.href = targetUrl;
-        }
+    function botReply(html) {
+        const row = document.createElement("div");
+        row.className = "row bot";
+        row.innerHTML = `<div class="bubble">${html}</div>`;
+        chatBox.appendChild(row);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
 
-        // تسجيل الدخول بجوجل
-        document.getElementById('googleBtn').onclick = async () => {
-            try {
-                const result = await signInWithPopup(auth, provider);
-                console.log("Success:", result.user.displayName);
-                showInterstitialAndRedirect();
-            } catch (error) {
-                console.error("Error:", error.message);
-                alert("Login Error: " + error.message);
-            }
-        };
-
-        // تسجيل الدخول اليدوي
-        document.getElementById('loginForm').onsubmit = (e) => {
-            e.preventDefault();
-            showInterstitialAndRedirect();
-        };
-    </script>
-
-    <script>
-        function toggleLight(checkbox) {
-            const room = document.getElementById('roomOverlay');
-            room.style.opacity = checkbox.checked ? "0.2" : "0.9";
-        }
-
-        function breakGlass(container) {
-            const breakSound = new Audio('https://res.cloudinary.com/dpggetoyh/video/upload/VID_20260428_213549_853_rwlfop.mp4');
-            breakSound.play().catch(() => console.log("Sound play deferred"));
-
-            for (let i = 0; i < 25; i++) {
-                const shard = document.createElement('div');
-                shard.className = 'shard';
-                const size = Math.random() * 10 + 3; 
-                shard.style.width = size + 'px';
-                shard.style.height = size + 'px';
-                const rect = container.getBoundingClientRect();
-                shard.style.left = (rect.left + Math.random() * rect.width) + 'px';
-                shard.style.top = (rect.top + Math.random() * rect.height) + 'px';
-                const destinationX = (Math.random() - 0.5) * 400;
-                shard.style.setProperty('--x', destinationX + 'px');
-                shard.style.setProperty('--r', (Math.random() * 720) + 'deg');
-                shard.style.clipPath = `polygon(${Math.random()*100}% ${Math.random()*100}%, ${Math.random()*100}% ${Math.random()*100}%, ${Math.random()*100}% ${Math.random()*100}%)`;
-                document.body.appendChild(shard);
-                setTimeout(() => shard.remove(), 8000);
-            }
-        }
-
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-7133783742273998",
-            enable_page_level_ads: true
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            toast.style.opacity = "1";
+            setTimeout(() => toast.style.opacity = "0", 1500);
         });
-    </script>
+    }
+
+    window.onload = () => {
+        botReply(`<span style="color: #FF0000; font-family: 'Cairo'; font-size: 1.1rem; display: block; margin-bottom: 5px;">
+            <span style="font-weight: 300;">اهلا بك في</span> 
+            <span style="font-weight: 900;">𝐁𝐎𝐓 𝐅𝐑𝐄𝐄 𝐅𝐈𝐑𝐄 𝟐𝟎𝟏𝟕 ✨</span>
+        </span><br>
+        <div style="color: #00FF00;">
+        اكتب اسمك لزخرفه<br>
+        اكتب رقم <b>1</b> لحصول على اسم فارغ<br>
+        اكتب رقم <b>2</b> لحصول على رموز مميزة<br>
+        اكتب رقم <b>3</b> لتلوين الإسم<br>
+        اكتب رقم <b>4</b> لحصول على اسماء كلانات<br>
+        اكتب رقم <b>5</b> لحصول على اسماء برازيلية والعادية<br>
+        اكتب رقم <b>6</b> لحصول على لوجو 🎨
+        </div>`);
+    };
+
+    let isColoring = false;
+
+    function send() {
+        let val = inputField.value.trim();
+        if (!val) return;
+        inputField.value = "";
+
+        if (isColoring) {
+            let html = "اختر اللون للنسخ:<br>";
+            const colorMap = [{n:"أحمر", f:"[FF0000]", c:"#FF0000"}, {n:"أصفر", f:"[FFFF00]", c:"#FFFF00"}, {n:"أزرق", f:"[0000FF]", c:"#0000FF"}, {n:"أخضر", f:"[00FF00]", c:"#00FF00"}, {n:"وردي", f:"[FF00FF]", c:"#FF00FF"}];
+            colorMap.forEach(c => { html += `<div class="style-row" onclick="copyText('${c.f}${val}')"><span style="color:${c.c}">${val}</span></div>`; });
+            botReply(html);
+            isColoring = false;
+            return;
+        }
+
+        if (val === "1") {
+            botReply("انسخ الكود فارغ:<br><div class='style-row' onclick=\"copyText('ㅤ')\"><span>ㅤ</span></div><div class='style-row' onclick=\"copyText('ㅤㅤ')\"><span>ㅤㅤ</span></div>");
+        } else if (val === "2") {
+            let html = "اضغط على الرمز لنسخه:<br><div class='symbol-grid'>";
+            allSymbols.forEach(sym => { if(sym.trim() !== "") html += `<div class="symbol-item" onclick="copyText('${sym}')">${sym}</div>`; });
+            html += "</div>";
+            botReply(html);
+        } else if (val === "3") {
+            botReply("أرسل الاسم الذي تريد تلوينه الآن 🎨");
+            isColoring = true;
+        } else if (val === "4") {
+            const clans = ["ONLYㅤGOATSAㅤ??", "Only legend", "ONLYㅤGangㅤ??", "ＩＱᅠ〆 T E A M", "WOLF TENX", "ＧＳＧ〆IＲＡQ", "ᵀᵉᵃᵐ★Cobra"];
+            let html = "أسماء كلانات مقترحة:<br>";
+            clans.forEach(n => { html += `<div class="style-row" onclick="copyText('${n}')"><span>${n}</span></div>`; });
+            botReply(html);
+        } else if (val === "5") {
+            const brazil = ["ＳＮＩＰＥＲ", "ɴᴇʏᴍᴀʀ", "God　CRIME　모", "sᴏᴍʙʀᴀ☂ 1%", "Zoom. 01x", "Universe NoXx", "x7ㅤGareㅤZzz"];
+            let html = "أسماء برازيلية وعادية:<br>";
+            brazil.forEach(n => { html += `<div class="style-row" onclick="copyText('${n}')"><span>${n}</span></div>`; });
+            botReply(html);
+        } else if (val === "6") {
+            botReply("خدمة تصميم اللوجو ستتوفر قريباً 🎨✨");
+        } else {
+            let html = "أنماط الزخرفة لاسمك:<br>";
+            maps.forEach(m => {
+                let res = "";
+                let styleArray = Array.from(m);
+                for (let char of val) {
+                    let idx = alpha.indexOf(char);
+                    res += (idx > -1) ? (styleArray[idx] || char) : char;
+                }
+                html += `<div class="style-row" onclick="copyText('${res}')"><span>${res}</span></div>`;
+            });
+            botReply(html);
+        }
+    }
+
+    inputField.addEventListener("keypress", (e) => { if (e.key === "Enter") send(); });
+</script>
 </body>
 </html>
+    
+  </body>
+  
+            </html>
+              
