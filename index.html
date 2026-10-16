@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Glassmorphism BOT ZA5RAFA</title>
+    <title>CRAFTLAND VENOM </title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
@@ -25,12 +25,12 @@
         }
 
         form {
-            width: 260px; 
+            width: 340px;
             background-color: #1a1a23; 
-            border-radius: 30px; 
-            padding: 30px 20px;  
+            border-radius: 35px; 
+            padding: 35px 25px;
             border: 2px solid #000000; 
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
             text-align: center;
             position: relative;
         }
@@ -65,49 +65,75 @@
 
         .img-container {
             position: relative;
-            width: 100px; 
-            height: 100px; 
+            width: 100%; 
+            height: 80px; 
             margin: 0 auto;
             display: flex;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
+            gap: 8px;
         }
 
         .form-logo {
-            width: 100%;
-            height: 100%;
+            width: 19px;
+            height: 19px;
             object-fit: cover;
             display: block;
             border-radius: 50%;
+            animation: blinkImage 3s infinite; 
+            position: static;
+        }
+
+        .sub-logo {
+            width: 120px; 
+            height: auto;
+            object-fit: contain;
+        }
+
+        @keyframes blinkImage {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .social {
-            margin-top: 20px;
+            margin-top: 35px; 
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px; 
         }
 
         .social div {
             width: 100%;
-            border-radius: 10px;
-            padding: 8px;
+            border-radius: 12px;
+            padding: 14px; 
             background-color: #2c2c38;
             color: #ffffff;
             text-align: center;
-            font-size: 11px; 
+            font-size: 14px; 
+            font-weight: 500;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 10px; 
+            transition: 0.2s;
+        }
+
+        .social div:hover {
+            background-color: #383848;
         }
 
         .social img {
-            width: 14px;
-            height: 14px;
+            width: 19px; 
+            height: 19px;
             object-fit: cover;
             border-radius: 50%;
+        }
+
+        .social .script-skin img {
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
@@ -115,15 +141,28 @@
     <form onsubmit="return false;">
         <div class="img-container">
             <img src="https://i.ibb.co/Zp089yRX/images-1.jpg" alt="Logo" class="form-logo">
+            <img src="https://i.ibb.co/tpsqTdhj/UGC-Craftland-logo.png" alt="Sub Logo" class="sub-logo">
         </div>
 
         <div class="social">
-            <div class="go" onclick="window.open('https://abdelahidz1-hash.github.io/CRAFTLAND-FREE-FIRE-/', '_blank', 'width=' + screen.width + ',height=' + screen.height + ',top=0,left=0');"><img src="https://i.ibb.co/Zp089yRX/images-1.jpg" alt="CRAFTLAND"> CRAFTLAND</div>
-            <div class="script-skin" onclick="window.open('https://www.mediafire.com/file/z5dwu06x5syrw0x/VENOM.zip/file', '_blank', 'width=' + screen.width + ',height=' + screen.height + ',top=0,left=0');"><img src="https://raw.githubusercontent.com/0xme/ff-resources/refs/heads/main/pngs/300x300/Icon_avatar_male_hair_cos_japanesestyle_oni.png" alt="SCRIPT SKIN"> SCRIPT SKIN</div>
-            <div class="fb" onclick="window.open('https://abdelahidz1-hash.github.io/CRAFTLAND-FF-1/', '_blank', 'width=' + screen.width + ',height=' + screen.height + ',top=0,left=0');"><img src="https://i.ibb.co/GQMjZXB4/image.jpg" alt="ITMES FF"> ITMES FF</div>
-            <div class="hud"><img src="https://raw.githubusercontent.com/0xme/ff-resources/refs/heads/main/pngs/300x300/Icon_Customize_WS_IMAGE.png" alt="HUD"> HUD</div>
+            <div class="go" onclick="
+                window.open('https://abdelahidz1-hash.github.io/craftland_01/', '_blank', 'width=1200,height=800');
+            "><img src="https://i.ibb.co/Zp089yRX/images-1.jpg" alt="CRAFTLAND"> CRAFTLAND</div>
+            <div class="script-skin" onclick="
+                const a = document.createElement('a');
+                a.href = 'https://files.catbox.moe/zxf8sa.zip';
+                a.download = 'VENOM SKIN.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            "><img src="https://i.ibb.co/RTTzmNJc/Picsart-26-05-31-10-21-22-114.png" alt="SCRIPT SKIN"> SCRIPT SKIN</div>
+            <div class="fb" onclick="
+                window.open('https://abdelahidz1-hash.github.io/craftland_ff/', '_blank', 'width=1200,height=800');
+            "><img src="https://i.ibb.co/GQMjZXB4/image.jpg" alt="ITMES FF"> ITMES FF</div>
+            <div class="hud" onclick="
+                alert('هذا القسم قيد التطوير حالياً!');
+            "><img src="https://raw.githubusercontent.com/0xme/ff-resources/refs/heads/main/pngs/300x300/Icon_Customize_WS_IMAGE.png" alt="HUD"> HUD</div>
         </div>
     </form>
 </body>
-                </html>
-                
+</html>
